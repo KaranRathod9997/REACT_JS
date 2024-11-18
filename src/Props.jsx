@@ -4,9 +4,9 @@
 //   return (
 //     <>
 //       <h1>{Props.arrray}</h1>
-//       <h1>Name :{studentdata?.name}</h1>  
-//       <h1>Age :{studentdata?.age}</h1>  
-//       <h1>City :{studentdata?.city}</h1>  
+//       <h1>Name : {studentdata?.name}</h1>  
+//       <h1>Age : {studentdata?.age}</h1>  
+//       <h1>City : {studentdata?.city}</h1>  
 //     </>
 //   )
 // }
@@ -15,9 +15,8 @@
 
 
 
-// using with foreach method
 
-
+// using with foreach method ==================
 
 import React from 'react';  
 
@@ -33,9 +32,9 @@ const StudentInfo = ({ array = [], studentdata }) => {
   return (  
     <>  
       {subjects} {/* Render the subjects */}  
-      <h1>Name :{studentdata?.name}</h1>  
-      <h1>Age :{studentdata?.age}</h1>  
-      <h1>City :{studentdata?.city}</h1>  
+      <h1>Name : {studentdata?.name}</h1>  
+      <h1>Age : {studentdata?.age}</h1>  
+      <h1>City : {studentdata?.city}</h1>  
     </>  
   );  
 }  
@@ -43,7 +42,9 @@ const StudentInfo = ({ array = [], studentdata }) => {
 export default StudentInfo;
 
 
-// using with map method ///////////
+
+
+// using with map method ====================
 
 // import React from 'react';  
          
@@ -51,11 +52,11 @@ export default StudentInfo;
 //   return (  
 //     <>  
 //       {array.map((subject, index) => (  
-//         <h2 key={index}>{subject}</h2> // Using map to render each subject  
+//         <h2 key={index}>{subject}</h2> 
 //       ))}  
-//       <h1>Name :{studentdata?.name}</h1>  
-//       <h1>Age :{studentdata?.age}</h1>  
-//       <h1>City :{studentdata?.city}</h1>  
+//       <h1>Name : {studentdata?.name}</h1>  
+//       <h1>Age : {studentdata?.age}</h1>  
+//       <h1>City : {studentdata?.city}</h1>  
 //     </>  
 //   );  
 // }  

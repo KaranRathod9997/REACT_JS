@@ -7,14 +7,14 @@ function Spreading() {
     setName("LAXMAN")
   }
 
-  // ============================================================
+  // ======================== Object =============================
 
   const[object,setObject] = useState({name:"KARAN",age:20,city:"Ahmedabad"})
   const changeObject = () =>{
     setObject({...object,name:"OM",age:21})
   }
 
-  // ============================================================
+  // ========================= ArraY ============================
 
   const [array,setArray] = useState([1,"KARAN",2,"LAXMAN"])
   const changeArray = () =>{
