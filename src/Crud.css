@@ -1,0 +1,97 @@
+/* Basic styling for the form */
+.form-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: white;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.checkbox-group label,
+.gender-selection label {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 16px;
+    color: green;
+}
+
+.file-input {
+    margin-top: 10px;
+}
+
+.data-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.file-image {
+    width: 50px;
+    height: auto;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #008CBA;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #007B9D;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+}
