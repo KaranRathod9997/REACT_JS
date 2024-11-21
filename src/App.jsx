@@ -4,6 +4,7 @@ import Counter from './Counter';
 import Props from './Props';
 import Spreading from './Spreading';
 import Comment from './comment';
+import Crud from './Crud'
 
 function App() {
   
@@ -20,7 +21,8 @@ function App() {
     {/* <Spreading/> */}
     {/* <Props arrray={arr} studentdata={Student} /> */}
     {/* <Counter /> */}
-    <Comment />
+    {/* <Comment /> */}
+    <Crud />
     </>
   )
 }
