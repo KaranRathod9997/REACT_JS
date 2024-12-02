@@ -3,11 +3,11 @@ import './App.css'
 import Counter from './Counter';
 import Props from './Props';
 import Spreading from './Spreading';
-import Comment from './comment';
+// import Comment from './comment';
 import Crud from './Crud'
 
 function App() {
-  
+
   //  const Student = {
   //   name:"karan",
   //   age:20,
@@ -18,11 +18,11 @@ function App() {
 
   return (
     <>
-    {/* <Spreading/> */}
-    {/* <Props arrray={arr} studentdata={Student} /> */}
-    {/* <Counter /> */}
-    {/* <Comment /> */}
-    <Crud />
+      {/* <Spreading/> */}
+      {/* <Props arrray={arr} studentdata={Student} /> */}
+      {/* <Counter /> */}
+      {/* <Comment /> */}
+      <Crud />
     </>
   )
 }

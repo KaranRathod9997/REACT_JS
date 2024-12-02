@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import './Crud.css';  // Assuming the CSS is stored in FormStyles.css
+import './Crud.css';  // Ensure this is the correct CSS file
 
 export default function Array_form() {
     const [input, setInput] = useState({
         name: "",
         Pass: "",
-        email: "", 
+        email: "",
         gender: "",
-        checked: [],
+        qualifications: [],
     });
 
     const [file, setFile] = useState(null);
+    const [searchquery, setSearchquery] = useState("");
 
     const [arr, setArr] = useState(() => {
         const storedData = localStorage.getItem("data");
@@ -22,14 +23,20 @@ export default function Array_form() {
     const handleForm = (e) => {
         e.preventDefault();
 
+
+        if (!input.name || !input.email || !input.Pass || !input.gender || input.qualifications.length === 0) {
+            alert("Please fill in all fields before submitting.");
+            return;
+        }
+
         const fileURL = file ? URL.createObjectURL(file) : null;
 
         const newItem = {
             name: input.name,
             Pass: input.Pass,
-            email: input.email,  
+            email: input.email,
             gender: input.gender,
-            checked: input.checked,
+            qualifications: input.qualifications,
             file: fileURL,
         };
 
@@ -37,13 +44,13 @@ export default function Array_form() {
             const updatedArr = [...arr];
             updatedArr[edit] = newItem;
             setArr(updatedArr);
-            setEdit(null); 
+            setEdit(null);
         } else {
             setArr([...arr, newItem]);
         }
 
         setFile(null);
-        setInput({ name: "", Pass: "", email: "", gender: "", checked: [] });
+        setInput({ name: "", Pass: "", email: "", gender: "", qualifications: [] });
         e.target.reset();
     };
 
@@ -52,12 +59,12 @@ export default function Array_form() {
         if (checked) {
             setInput((prev) => ({
                 ...prev,
-                checked: [...prev.checked, value],
+                qualifications: [...prev.qualifications, value],
             }));
         } else {
             setInput((prev) => ({
                 ...prev,
-                checked: prev.checked.filter((item) => item !== value),
+                qualifications: prev.qualifications.filter((item) => item !== value),
             }));
         }
     };
@@ -89,6 +96,10 @@ export default function Array_form() {
         };
     }, [file]);
 
+    const filteredarr = arr.filter((e) =>
+        e.name.toLowerCase().includes(searchquery.toLowerCase())
+    );
+
     return (
         <>
             <form onSubmit={handleForm} className="form-container">
@@ -103,7 +114,7 @@ export default function Array_form() {
                 /><br /><br />
 
                 <input
-                    type="email"  
+                    type="email"
                     placeholder="Enter your Email"
                     value={input.email}
                     onChange={(e) => setInput({ ...input, email: e.target.value })}
@@ -162,7 +173,7 @@ export default function Array_form() {
                             type="checkbox"
                             id="10th"
                             value="10th"
-                            checked={input.checked.includes("10th")}
+                            checked={input.qualifications.includes("10th")}
                             onChange={handleCheckboxChange}
                         />
                         10th
@@ -173,7 +184,7 @@ export default function Array_form() {
                             type="checkbox"
                             id="12th"
                             value="12th"
-                            checked={input.checked.includes("12th")}
+                            checked={input.qualifications.includes("12th")}
                             onChange={handleCheckboxChange}
                         />
                         12th
@@ -184,7 +195,7 @@ export default function Array_form() {
                             type="checkbox"
                             id="mba"
                             value="mba"
-                            checked={input.checked.includes("mba")}
+                            checked={input.qualifications.includes("mba")}
                             onChange={handleCheckboxChange}
                         />
                         MBA
@@ -195,7 +206,7 @@ export default function Array_form() {
                             type="checkbox"
                             id="mca"
                             value="mca"
-                            checked={input.checked.includes("mca")}
+                            checked={input.qualifications.includes("mca")}
                             onChange={handleCheckboxChange}
                         />
                         MCA
@@ -209,37 +220,49 @@ export default function Array_form() {
                     onChange={saveImage}
                     className="file-input"
                 />
+                <br /><br />
 
                 <button className="submit-btn">{edit !== null ? "Update" : "Submit"}</button>
-            </form><br /><br /><br />
+            </form><br />
 
             {arr.length > 0 && (
+                <>
+                    <input
+                        type="text"
+                        placeholder='Search by Name'
+                        value={searchquery}
+                        onChange={(e) => setSearchquery(e.target.value)}
+                    /><br /><br />
+                </>
+            )}
+
+            {filteredarr.length > 0 && (
                 <table className="data-table">
                     <thead>
                         <tr>
                             <td>Sr No.</td>
                             <td>Name</td>
                             <td>Password</td>
-                            <td>Email</td> 
+                            <td>Email</td>
                             <td>Gender</td>
-                            <td>Checked</td>
+                            <td>Qualifications</td>
                             <td>Image</td>
                             <td>Action</td>
                         </tr>
                     </thead>
                     <tbody>
-                        {arr.map((ele, i) => (
+                        {filteredarr.map((ele, i) => (
                             <tr key={i}>
                                 <td>{i + 1}</td>
                                 <td>{ele.name}</td>
                                 <td>{ele.Pass}</td>
-                                <td>{ele.email}</td> 
+                                <td>{ele.email}</td>
                                 <td>{ele.gender}</td>
-                                <td>{ele.checked.join(", ")}</td>
+                                <td>{ele.qualifications.join(", ")}</td>
                                 <td><img src={ele.file} alt={ele.name} className="file-image" /></td>
                                 <td>
-                                    <button className="edit-btn" onClick={() => editdata(i)}>edit</button>
-                                    <button className="delete-btn" onClick={() => deletedata(i)}>delete</button>
+                                    <button className="edit-btn" onClick={() => editdata(i)}>Edit</button>
+                                    <button className="delete-btn" onClick={() => deletedata(i)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
