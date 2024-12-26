@@ -1,11 +1,15 @@
 
-// import './App.css'
+import './App.css'
 // import Counter from './Counter';
 // import Props from './Props';
 // import Spreading from './Spreading';
 // import Comment from './comment';
 // import Crud from './Crud'
-import AddData from './redux/AddData.jsx';
+// import AddData from './redux/AddData.jsx';
+// import UserApi from './API/Userapi.jsx';
+// import Apiaxios from './API/Apiaxios.jsx';
+// import DogAPI from './API/DogAPI.jsx';
+// import StoreApi from './API/StoreApi.jsx';
 
 function App() {
 
@@ -24,7 +28,11 @@ function App() {
       {/* <Counter /> */}
       {/* <Comment /> */}
       {/* <Crud /> */}
-      <AddData />
+      {/* <AddData /> */}
+      {/* <UserApi /> */}
+      {/* <Apiaxios /> */}
+      {/* <DogAPI /> */}
+      {/* <StoreApi /> */}
     </>
   )
 }
