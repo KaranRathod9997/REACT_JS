@@ -1,5 +1,7 @@
 
-import './App.css'
+// import './App.css'
+// import FireStoreDataBase from './Firebase/FireStoreDataBase';
+import RealTimeDataBase from './Firebase/RealTimeDataBase';
 // import Counter from './Counter';
 // import Props from './Props';
 // import Spreading from './Spreading';
@@ -33,6 +35,8 @@ function App() {
       {/* <Apiaxios /> */}
       {/* <DogAPI /> */}
       {/* <StoreApi /> */}
+      <RealTimeDataBase />
+      {/* <FireStoreDataBase /> */}
     </>
   )
 }
