@@ -1,7 +1,7 @@
 
 
 import React, { useState } from 'react';
-import { app } from './Login';
+import { app } from './Authentication/Login';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 
