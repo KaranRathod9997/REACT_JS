@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function StoreApi() {
     const [product, setProduct] = useState(null);
@@ -16,54 +15,47 @@ function StoreApi() {
     };
 
     return (
-        <div className="container mt-5">
-            <div className="text-center mb-4">
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col items-center py-10">
+            <div className="mb-6">
                 <button
-                    className="btn btn-primary btn-lg"
+                    className="bg-blue-600 text-white py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transform transition-transform hover:scale-105 text-lg font-semibold"
                     onClick={fetchProduct}
-                    style={{ width: '250px', fontSize: '18px' }}
                 >
                     Get New Product
                 </button>
             </div>
 
             {product && (
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card shadow-sm bg-light">
-                            <div className="row g-0">
-                                <div className="col-md-4 d-flex justify-content-center align-items-center">
-                                    <img
-                                        src={product.image}
-                                        alt={product.title}
-                                        className="img-fluid rounded-start"
-                                        style={{ objectFit: 'cover', height: '200px', maxWidth: '100%' }}
-                                    />
-                                </div>
-                                <div className="col-md-8">
-                                    <div className="card-body">
-                                        <h5 className="card-title" style={{ fontSize: '24px' }}>
-                                            {product.title}
-                                        </h5>
-                                        <p className="card-text" style={{ fontSize: '16px', color: '#6c757d' }}>
-                                            {product.description.length > 100
-                                                ? product.description.substring(0, 100) + "..."
-                                                : product.description
-                                            }
-                                        </p>
-                                        <span className="text-primary" style={{ fontWeight: 'bold', fontSize: '22px' }}>
-                                            ${product.price}
-                                        </span>
-                                        <div className="mt-3">
-                                            <button
-                                                className="btn btn-success"
-                                                style={{ fontSize: '14px' }}
-                                            >
-                                                Add to Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="grid grid-cols-1 md:grid-cols-3">
+                        {/* Product Image */}
+                        <div className="flex justify-center items-center bg-gray-100 p-4">
+                            <img
+                                src={product.image}
+                                alt={product.title}
+                                className="w-full h-64 object-contain rounded-lg"
+                            />
+                        </div>
+
+                        {/* Product Details */}
+                        <div className="col-span-2 p-6">
+                            <h5 className="text-2xl font-bold text-gray-800 mb-4">
+                                {product.title}
+                            </h5>
+                            <p className="text-gray-600 text-base mb-4">
+                                {product.description.length > 150
+                                    ? `${product.description.substring(0, 150)}...`
+                                    : product.description}
+                            </p>
+                            <span className="text-xl font-semibold text-blue-600">
+                                ${product.price}
+                            </span>
+                            <div className="mt-6">
+                                <button
+                                    className="bg-green-500 text-white py-2 px-6 rounded-lg shadow-md hover:bg-green-600 transition-transform transform hover:scale-105 text-sm font-semibold"
+                                >
+                                    Add to Cart
+                                </button>
                             </div>
                         </div>
                     </div>

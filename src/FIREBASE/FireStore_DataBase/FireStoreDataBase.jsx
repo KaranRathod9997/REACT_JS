@@ -10,8 +10,8 @@ import {
     getFirestore,
     updateDoc,
 } from "firebase/firestore";
-import { app } from "./Data";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { app } from "../Authentication_with_Email&Password/Login";
 
 const db = getFirestore(app);
 

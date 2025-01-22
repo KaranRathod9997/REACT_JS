@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Crud.css';  // Ensure this is the correct CSS file
+// import './Crud.css'; 
 
 export default function Array_form() {
     const [input, setInput] = useState({

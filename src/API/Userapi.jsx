@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 
 const UserApi = () => {
@@ -21,30 +19,31 @@ const UserApi = () => {
     };
 
     return (
-        <div className="container d-flex flex-column align-items-center mt-5">
-            <h1 className="mb-4">Random User Data API</h1>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-100 to-gray-300 py-10">
+            <h1 className="text-3xl font-bold text-gray-800 mb-6">Random User Data API</h1>
             <button
-                className="btn btn-primary btn-lg shadow-lg mb-4"
+                className="bg-blue-600 text-white py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 text-lg font-semibold mb-6"
                 onClick={fetchUserData}
-                style={{ width: '250px', fontSize: '18px' }}
             >
                 Get Random User Data
             </button>
 
             {userData && (
-                <div className="card shadow-lg" style={{ width: '18rem', margin: '10px', borderRadius: '10px' }}>
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden w-80">
+                    {/* User Image */}
                     <img
                         src={userData.image}
-                        className="card-img-top"
                         alt="Random User"
-                        style={{ borderRadius: '10px 10px 0 0' }}
+                        className="w-full h-56 object-cover"
                     />
-                    <div className="card-body text-center">
-                        <h5 className="card-title" style={{ fontSize: '20px' }}>{userData.name}</h5>
-                        <p style={{ fontSize: '14px', color: '#6c757d' }}>
+
+                    {/* User Details */}
+                    <div className="p-6 text-center">
+                        <h5 className="text-xl font-bold text-gray-800 mb-2">{userData.name}</h5>
+                        <p className="text-sm text-gray-600 mb-2">
                             <strong>Email:</strong> {userData.email}
                         </p>
-                        <p style={{ fontSize: '14px', color: '#6c757d' }}>
+                        <p className="text-sm text-gray-600">
                             <strong>Location:</strong> {userData.location}
                         </p>
                     </div>

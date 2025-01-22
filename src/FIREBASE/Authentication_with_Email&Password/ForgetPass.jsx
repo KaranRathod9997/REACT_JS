@@ -1,9 +1,7 @@
-
-
 import React, { useState } from 'react';
-import { app } from './Authentication/Login';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import { Link } from 'react-router-dom';
+import { app } from './Login';
 
 const auth = getAuth(app);
 
@@ -23,28 +21,29 @@ export default function ForgetPass() {
     };
 
     return (
-        <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-            <div className="card p-4 shadow-lg" style={{ width: '400px' }}>
-                <h1 className="text-center mb-4">Forget Password</h1>
-                <form onSubmit={handlePass}>
-                    <div className="mb-3">
+        <div className="min-h-screen bg-gradient-to-r from-green-500 via-yellow-500 to-orange-500 flex justify-center items-center">
+            <div className="bg-white space-y-8 p-8 rounded-xl shadow-lg w-full max-w-md">
+                <h1 className="text-center text-2xl font-semibold mb-6">Forget Password</h1>
+                <form onSubmit={handlePass} className="space-y-4">
+                    <div className="mb-4">
                         <input
                             type="email"
                             placeholder="Enter your email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="form-control"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-yellow-300"
                         />
                     </div>
-                    <div className="d-grid">
-                        <button type="submit" className="btn btn-primary">
-                            Send Email
-                        </button>
-                    </div>
+                    <button
+                        type="submit"
+                        className="w-full bg-yellow-500 text-white py-2 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring focus:ring-yellow-300"
+                    >
+                        Send Email
+                    </button>
                 </form>
-                <div className="text-center mt-3">
-                    <Link to="/signin" className="btn btn-link">
+                <div className="mt-4 text-center text-sm text-gray-500">
+                    <Link to="/signin" className="text-yellow-500 hover:underline">
                         Back to Sign In
                     </Link>
                 </div>

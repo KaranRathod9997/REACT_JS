@@ -1,6 +1,4 @@
-
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const DogAPI = () => {
     const [images, setImages] = useState([]);
@@ -15,31 +13,31 @@ const DogAPI = () => {
     };
 
     return (
-        <div className="container d-flex flex-column align-items-center mt-5">
-            <h1 className="mb-4">Dog Image API</h1>
-            <div className="d-flex justify-content-center mb-4">
+        <div className="min-h-screen bg-gradient-to-b from-purple-50 to-purple-100 flex flex-col items-center py-10">
+            <h1 className="text-3xl font-extrabold text-gray-800 mb-6">Dog Image API</h1>
+            <div className="mb-8">
                 <button
-                    className="btn btn-primary btn-lg shadow-lg"
+                    className="bg-purple-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 hover:shadow-lg transition-transform transform hover:scale-105 text-lg"
                     onClick={api_call}
-                    style={{ width: '250px', fontSize: '18px' }}
                 >
                     Get Random Dog Images
                 </button>
             </div>
 
-
-            <div className="d-flex flex-wrap justify-content-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-5xl">
                 {images.map((image, index) => (
-                    <div key={index} className="card shadow-lg" style={{ width: '18rem', margin: '10px', borderRadius: '10px' }}>
+                    <div
+                        key={index}
+                        className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform"
+                    >
                         <img
                             src={image}
-                            className="card-img-top"
                             alt={`Dog ${index}`}
-                            style={{ borderRadius: '10px 10px 0 0' }}
+                            className="w-full h-48 object-cover"
                         />
-                        <div className="card-body">
-                            <h5 className="card-title text-center" style={{ fontSize: '20px' }}>Meet the Dog</h5>
-                            <p className="text-center" style={{ fontSize: '14px', color: '#6c757d' }}>
+                        <div className="p-4 text-center">
+                            <h5 className="text-xl font-bold text-gray-700">Meet the Dog</h5>
+                            <p className="text-gray-500 text-sm">
                                 A random dog image fetched from the Dog API!
                             </p>
                         </div>

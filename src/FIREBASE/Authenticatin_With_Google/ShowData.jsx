@@ -1,25 +1,47 @@
 import React from 'react'
-import { app } from './Data'
 import { getAuth, signOut } from 'firebase/auth'
+import { app } from '../Authentication_with_Email&Password/Login'
 
 const auth = getAuth(app)
 
 export default function ShowData({ display, email, image }) {
+
     const SignOutGoogle = () => {
         signOut(auth)
-            .then(() => console.log("SignOut ....."))
+            .then(() => console.log("SignOut successful"))
             .catch((err) => console.log(err))
     }
+
     return (
-        <>
-            <h1>ShowData</h1>
-            <img src={image} alt="" />
-            <h3>{display}</h3>
-            <h3>{email}</h3>
-            <button onClick={SignOutGoogle}>SignOut</button>
-        </>
+        <div className="flex justify-center items-center min-h-screen bg-gray-100">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-3/4 md:w-1/2 lg:w-1/3 text-center">
+                <h1 className="text-2xl font-semibold text-indigo-600 mb-4">User Data</h1>
+
+                {/* User Profile Image */}
+                <img 
+                    src={image} 
+                    alt="Profile"
+                    className="w-32 h-32 rounded-full mx-auto mb-4" 
+                />
+
+                {/* Display Name */}
+                <h3 className="text-xl font-medium text-gray-800 mb-2">{display}</h3>
+
+                {/* Email Address */}
+                <h3 className="text-lg text-gray-600 mb-6">{email}</h3>
+
+                {/* Sign Out Button */}
+                <button
+                    onClick={SignOutGoogle}
+                    className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+                >
+                    Sign Out
+                </button>
+            </div>
+        </div>
     )
 }
+
 
 // import React from "react";
 // import { app } from "./Data";

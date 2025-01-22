@@ -1,9 +1,7 @@
-
-
 import React, { useState } from 'react';
-import { app } from '../Authenticatin_With_Google/Login';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { app } from './Login';
 
 const auth = getAuth(app);
 
@@ -28,40 +26,44 @@ export default function SignIn() {
     };
 
     return (
-        <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-            <div className="card p-4 shadow-lg" style={{ width: '400px' }}>
-                <h1 className="text-center mb-4">Sign In</h1>
-                <form onSubmit={handleForm}>
-                    <div className="mb-3">
+        <div className="min-h-screen bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 flex justify-center items-center">
+            <div className="bg-white space-y-8 p-8 rounded-xl shadow-lg w-full max-w-md">
+                <h1 className="text-center text-2xl font-semibold mb-6">Instagram</h1>
+                <form onSubmit={handleForm} className="space-y-4">
+                    <div className="mb-4">
                         <input
                             type="email"
-                            placeholder="Enter your email"
+                            placeholder="Email"
                             value={input.email}
                             onChange={(e) => setInput({ ...input, email: e.target.value })}
                             required
-                            className="form-control"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
                         />
                     </div>
-                    <div className="mb-3">
+                    <div className="mb-4">
                         <input
                             type="password"
-                            placeholder="Enter your password"
+                            placeholder="Password"
                             value={input.pass}
                             onChange={(e) => setInput({ ...input, pass: e.target.value })}
                             required
-                            className="form-control"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
                         />
                     </div>
-                    <div className="d-grid">
-                        <button type="submit" className="btn btn-primary">
-                            Sign In
-                        </button>
-                    </div>
+                    <button
+                        type="submit"
+                        className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+                    >
+                        Sign In
+                    </button>
                 </form>
-                <div className="text-center mt-3">
-                    <Link to="/forget" className="btn btn-link">
-                        Forget Password
+                <div className="mt-4 text-center text-sm text-gray-500">
+                    <Link to="/forget" className="text-blue-500 hover:underline">
+                        Forgot Password?
                     </Link>
+                </div>
+                <div className="mt-4 text-center text-sm text-gray-500">
+                    Don't have an account? <Link to="/signup" className="text-blue-500 hover:underline">Sign up</Link>
                 </div>
             </div>
         </div>

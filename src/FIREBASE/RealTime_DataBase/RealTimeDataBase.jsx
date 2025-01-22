@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getDatabase, ref, push, remove, update, onValue } from "firebase/database";
-import { app } from "./Data";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { app } from "../Authentication_with_Email&Password/Login";
 
 const db = getDatabase(app);
 
